@@ -2,94 +2,183 @@
 
 ## Agenda
 
-- We use Git
-- Control Contribution
-- Testing
-- A Glimps Into the Future: Verification
-- Review
-- Commit History - Merge vs. Rebase
-- Releasing
-- Documentation
+- WHOAMI
 - Talking to Each Other
+- Design
+- Review
+- Good Commits
+- Forking, Branching, Develop, Master?
+- Testing
+- Documentation
+- Internationalization and Localization
+- Issue Management
+- Releasing
+- Advanced Git Tips
 
-# About Me
+# WHOAMI
 
-# We use Git
+# Disclaimer
 
-## Version Control System (VCS)
+## Let's Talk
 
-Learn about Git at <http://bit.ly/1Y6q7CA>.
+<https://gitter.im/citlab/Workflows>
 
-# Control Contribution
+# Design
 
-## Access Management
+## Mockups: CLI
 
-- Fork
-- Branch
+```
+$ coala
+/home/lasse/prog/coala/setup.py
+|   2|
+|    | [NORMAL] SpaceConsistencyBear:
+|    | Line contains following spacing inconsistencies:
+|    | - Trailing whitespaces.
+|    | The following actions are applicable:
+|    |  0: Apply no further actions.
+|    |  1: Open the affected file(s) in an editor.
+|    |  2: Apply the patch automatically.
+|    |  3: Print a diff of the patch.
+```
 
-## Pull Request
+## Mockups: GUI
 
-- Somebody *else* than contributor controls if it goes in.
+https://wiki.gnome.org/Design/Apps/Mail
 
+Use the power of Inkscape!
 
-# Testing
+## Mockups: API
 
-## Why?
+```python
+@bear(depends_on=ClangASTBear)
+def ClangAnalysisBear(ClangASTBearResults: list()):
+    for diagnostic in ClangASTBearResults:
+        yield Result.from_clang_diagnostic(diagnostic)
+```
 
-- Release without worries.
-- Without, bugs *will* reoccur.
+## Generalizing
 
-## How?
+Make it modular!
 
-- Unittests
-- **Documentation Tests**
+## Prototyping
 
-## Automate!
+Walk into as many traps as possible while trying to avoid them!
 
-- Continuous Integration
-- Test against different environments
+## Clear Directory Structure
 
-# A Glimps Into the Future: Verification
-
-## What's That!?
-
-- Prove software formally.
-- Pre-, Postconditions
-- Invariants
-- ...
-
-## That's a Lot of Work!
-
-**Yes!**
+- Documentation
+- Localization
+- Source Code (if needed client/server)
+- CI config files
 
 # Review
 
-## Why?
+## Why That?
 
-- Verify that code is understandable.
-- Improve quality.
+- **Ensure** Understandability!
+- Learn from each other.
+
+## Quality Guidelines
+
+- Use static code analysis!
+
+# Good Commits
 
 ## Commit Messages
 
 ![https://xkcd.com/1296/](git_commit.png)
 
-## Automate
+# Forking, Branching, Develop, Master?
 
-# Commit History - Merge vs. Rebase
+## Access Management
 
-## Merge
+**Fork** or **branch**?
 
-GitHub wants you to do it.
+## Git Flow
 
-## Rebase
+![Git Flow](git-flow.png)
 
-I want you to do it:
+# Testing
 
-- Clean History
-- Linear History
-- Good Tracability!
+## Automate!
+
+- Continuous Integration
+- Test against different environments
+- Ensure coverage
+
+## A Glimps Into the Future: Verification
+
+- Prove software formally.
+- Pre-, Postconditions
+- Invariants
+
+## Usability Testing
+
+- Set up **tasks**
+- Let 5-10 **people** do them
+- **Do not help** them
+- Let them tell you what they **think**
+
+## Usability Testing (2)
+
+> Run our program.
+
+> Correct spacing of your code by using coala.
+
+# Documentation
+
+## Documentation Testing
+
+```python
+def add(*args):
+   """
+   Adds the given numbers while ignoring None's.
+
+   >>> add(2, None, 6)
+   8
+
+   :param args: The numbers to add.
+   :return:     The sum of the given numbers.
+   """
+   return sum((arg or 0) for arg in args)
+```
+
+## Generating Documentation
+
+<file:///home/lasse/prog/gitmate-generic/docs/_build/html/server.views.html#server.views.static.teapot>
+
+# Internationalization and Localization
+
+## Internationalization
+
+```python
+from gettext import _
+
+things_to_buy = (_('Ford Prefect') + ' '
+                 _('and') + ' ' +
+                 ', '.join([_('mice'), _('towel')]))
+
+print(_("Let's buy {}.").format(things_to_buy)
+```
+
+## Localization
+
+- Translators shouldn't need to use git!
+- Translators should have a possibility to file bugs for wrong i18n!
+
+# Issue Management
+
+## Categorization
+
+- `Newcomer` bugs
+- Automation
+- `WONTFIX`
 
 # Releasing
+
+## Milestones vs. Schedule
+
+Feature based releases?
 
 ## Tracing Changes
 
@@ -104,18 +193,18 @@ Fix bugs in old releases.
 
 - Cherry Pick
 
-## Automate
+# Advanced Git Tips
 
-# Documentation
+## Finding Bugs
 
-## Write
+- `blame` ~~people~~ commits!
+- `bisect` to find bugs
 
-Combine with unittests - doctest!
+## Reworking Commits
 
-## Automate
+- `rebase` onto master!
+- `rebase --interactive` to batch correct commits.
 
-# Talking to Each Other
+## Create Aliases
 
-## Channels
-
-IRC like.
+Using git a lot? Use `g` instead of `git`.
