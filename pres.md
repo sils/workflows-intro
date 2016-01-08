@@ -98,6 +98,10 @@ Walk into as many traps as possible while trying to avoid them!
 
 ![Git Flow](git-flow.png)
 
+## Rebase Flow
+
+![Rebase](rebase.png)
+
 # Testing
 
 ## Automate!
