@@ -17,7 +17,7 @@
 
 # WHOAMI
 
-# Disclaimer
+# Disclaimer (Noncommercial)
 
 ## Let's Talk
 
@@ -56,9 +56,11 @@ def ClangAnalysisBear(ClangASTBearResults: list()):
         yield Result.from_clang_diagnostic(diagnostic)
 ```
 
-## Generalizing
+## Note!
 
-Make it modular!
+- Make it modular!
+- Set goals!
+- Set **non goals**!
 
 ## Prototyping
 
@@ -82,11 +84,20 @@ Walk into as many traps as possible while trying to avoid them!
 
 - Use static code analysis!
 
+- Hound CI
+- Scrutinizer CI
+- coala/GitMate
+
 # Good Commits
 
 ## Commit Messages
 
 ![https://xkcd.com/1296/](git_commit.png)
+
+## Quality Commits
+
+- Atomic
+- A **change**, not a **fix** or **feature**
 
 # Forking, Branching, Develop, Master?
 
@@ -176,7 +187,7 @@ print(_("Let's buy {}.").format(things_to_buy)
 
 - `Newcomer` bugs
 - Automation
-- `WONTFIX`
+- Don't be afraid of `WONTFIX`
 
 # Releasing
 
@@ -190,6 +201,7 @@ Updating `CHANGELOG`s sucks!
 
 - Track a wiki page.
 - Maintainer updates on release.
+- Annotate commit messages.
 
 ## Backporting
 
