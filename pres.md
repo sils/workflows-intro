@@ -169,11 +169,11 @@ def add(*args):
 ```python
 from gettext import _
 
-things_to_buy = (_('Ford Prefect') + ' '
+things_to_buy = (_('a Ford Prefect') + ' '
                  _('and') + ' ' +
                  ', '.join([_('mice'), _('towel')]))
 
-print(_("Let's buy {}.").format(things_to_buy)
+print(_("Let's buy {}.".format(things_to_buy))
 ```
 
 ## Localization
