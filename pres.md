@@ -99,6 +99,16 @@ Walk into as many traps as possible while trying to avoid them!
 - Atomic
 - A **change**, not a **fix** or **feature**
 
+## Try it Out!
+
+<https://github.com/sils1297/Workflows/>
+
+- Fork
+- Clone your fork
+- Branch off
+- Commit
+- Push (`git push -u origin <branchname>`)
+
 # Forking, Branching, Develop, Master?
 
 ## Access Management
@@ -113,7 +123,22 @@ Walk into as many traps as possible while trying to avoid them!
 
 ![Rebase](rebase.png)
 
+## Beware!
+
+ * Owned branches
+ * Release branches
+
+## Excercise!
+
+ * `git remote add orig https://github.com/sils1297/Workflows/`
+ * `git checkout master && git pull orig`
+ * Rebase your branch (`git rebase --interactive master`)
+ * Resolve conflicts with `git mergetool` (consider installing `meld`)
+ * Push with `git push --force`
+
 # Testing
+
+# About People...
 
 ## Automate!
 
