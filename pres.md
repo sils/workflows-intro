@@ -234,6 +234,12 @@ Fix bugs in old releases.
 
 - Cherry Pick
 
+## Automation
+
+- Release
+- Prerelease
+- Deployment
+
 # Advanced Git Tips
 
 ## Finding Bugs
